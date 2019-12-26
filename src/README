@@ -1,0 +1,36 @@
+A simple animation program that automatically generates in betweens for hand drawn key frames.
+
+MVP:
+- user can draw on screen using mouse
+- keyboard bindings to make new frame (N), move between frames (arrows), animate (enter)
+- animation displays the in between frames for all the hand drawn key frames
+
+Extras:
+- erasing lines
+- deleting frames
+- multiple lines on one frame
+- support saving/loading files
+- support exporting as a gif
+- buttons in addition to key bindings
+- allow user to set the num frames between keyframes
+- show the betweens in drawing mode, allow the user to edit them (convert to keyframe)
+
+Model:
+- cache inbetweens?
+- an Animation contains a List[Frame]
+- to cache in betweens, Animation could have a Dict[int (key), List[Frame] (betweens) ]
+    - everytime a frame is changed, the betweens before and after it have to be wiped
+- a Frame contains a line or a list of lines
+    - should be read only outside the model - how to ensure this? wrapper?
+- lines represented as a List[Pixel]
+- methods:
+    - frameAt(idx), keyFrameAt(keyIdx), addFrameAt(keyIdx), addPixToFrame(keyIdx, posn), newLine(keyIdx)
+    - numFrames(), numKeyFrames()
+
+View:
+- what GUI library to use? pygame? tkinter? wxPython?
+- actual gui libraries seem to be more oo, while pygame is just functional style loop
+- separate views for the drawing part of the window: one that animates, one that draws
+    - possibly more if we add ability to show betweens in drawing mode
+
+Controller:
