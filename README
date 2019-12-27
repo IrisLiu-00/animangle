@@ -28,9 +28,12 @@ Model:
     - numFrames(), numKeyFrames()
 
 View:
-- what GUI library to use? pygame? tkinter? wxPython?
-- actual gui libraries seem to be more oo, while pygame is just functional style loop
 - separate views for the drawing part of the window: one that animates, one that draws
     - possibly more if we add ability to show betweens in drawing mode
+- textual view to render to file
+- methods: render, animate (is this in place of render?), setKeyVisible?
+- pressing arrows to navigate between frames is internal
+- notify controller for: drawing on a frame, playing animation, adding a frame
 
 Controller:
+- methods: startLineOn(idx), addPix(idx, x, y), newFrame(),

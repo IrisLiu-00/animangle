@@ -1,6 +1,8 @@
 from .Frame import Frame
 from .Posn import Posn
 
+# todo: read only frame? read only animation
+
 class Animation:
     """A class containing information about an animation, including key frames and in betweens."""
 
@@ -42,8 +44,6 @@ class Animation:
         if not prevKey in self._betweens:
             self._betweens[prevKey] = self._frames[prevKey].betweensTo(self._frames[prevKey + 1], self.numBetweens)
         return self._betweens[prevKey][betweenIdx - 1]
-
-    # todo: read only frame? how to properly encapsulate frames
 
     def keyFrameAt(self, keyIdx: int):
         """Returns the key frame with the given index.
