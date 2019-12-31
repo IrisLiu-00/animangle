@@ -1,4 +1,6 @@
+from model.AnimationBuilder import text2Anim, FileFormatException
 from model.Posn import Posn
+from view.TextualView import TextualView
 
 
 class BasicController:
@@ -38,3 +40,26 @@ class BasicController:
         self._anim.addFrame()
         self._view.setToKey(self._anim.numKeyFrames() - 1)
         self._view.render()
+
+    def requestOpen(self, file):
+        """Opens the given file, and displays the new animation on the view. If the file is improperly formatted,
+        displays a message on the view.
+        Args:
+            file (file object): the file to open
+        """
+        with file:
+            try:
+                newAnim = text2Anim(file)
+                self._view.swapAnim(newAnim)
+                if newAnim.numKeyFrames() < 1:
+                    newAnim.addFrame()
+                self._view.setToKey(0)
+                self._view.render()
+            except FileFormatException as e:
+                self._view.displayMsg(str(e))
+
+    def requestSave(self, file):
+        """Saves the current animation to the given file."""
+        with file:
+            view = TextualView(self._anim, file)
+            view.render()

@@ -8,7 +8,7 @@ class TextualView():
 
         Args:
             anim (Animation): the model to base the view off of
-            target (writable?): where to output the textual view
+            target (file object): where to output the textual view
         """
         self.anim = anim
         self.target = target

@@ -35,10 +35,10 @@ class MyTestCase(unittest.TestCase):
         self.anim1.addFrame()
 
     def test_text_view(self):
-        with open(r"C:\Users\IrisL\Documents\PycharmProjects\Animator\src\resources\anim2.aml", "w") as file:
+        with open(r"C:\Users\IrisL\Documents\PycharmProjects\Animator\src\resources\anim2.animangle", "w") as file:
             view = TextualView(self.anim1, file)
             view.render()
-        anim2 = file2Anim(r"C:\Users\IrisL\Documents\PycharmProjects\Animator\src\resources\anim2.aml")
+        anim2 = file2Anim(r"C:\Users\IrisL\Documents\PycharmProjects\Animator\src\resources\anim2.animangle")
         for i in range(self.anim1.numFrames()):
             self.assertEqual(anim2.frameAt(i), self.anim1.frameAt(i))
         self.assertEqual(self.anim1.numFrames(), anim2.numFrames())

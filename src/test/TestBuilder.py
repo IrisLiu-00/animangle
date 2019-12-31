@@ -5,7 +5,7 @@ from src.model.Posn import Posn
 
 class TestBuilder(unittest.TestCase):
     def setUp(self) -> None:
-        self.anim1 = file2Anim(r"C:\Users\IrisL\Documents\PycharmProjects\Animator\src\resources\anim1.aml")
+        self.anim1 = file2Anim(r"C:\Users\IrisL\Documents\PycharmProjects\Animator\src\resources\anim1.animangle")
 
     def test_frames(self):
         exp = [(Posn(1, 2), Posn(3, 4), Posn(5, 6))]
@@ -23,9 +23,9 @@ class TestBuilder(unittest.TestCase):
         self.assertEqual(1, anim2.numFrames())
 
     def test_error1(self):
-        self.assertRaises(FileFormatException, file2Anim, "formaterror1.aml")
-        self.assertRaises(FileFormatException, file2Anim, "formaterror2.aml")
-        self.assertRaises(FileFormatException, file2Anim, "formaterror3.aml")
+        self.assertRaises(FileFormatException, file2Anim, "formaterror1.animangle")
+        self.assertRaises(FileFormatException, file2Anim, "formaterror2.animangle")
+        self.assertRaises(FileFormatException, file2Anim, "formaterror3.animangle")
 
     # test an empty file (empty anim)
     # test a nonexistent file (riase error)

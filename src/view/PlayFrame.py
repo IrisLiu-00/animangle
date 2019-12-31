@@ -7,8 +7,7 @@ class PlayFrame(FrameDisplay):
 
     def __init__(self, animation, master):
         """Produces a PlayFrame based on the given model."""
-        super().__init__(master)
-        self._anim = animation
+        super().__init__(animation, master)
         self._playing = False
 
     def render(self):
@@ -17,7 +16,7 @@ class PlayFrame(FrameDisplay):
         def renderHelp():
             nonlocal curFrame
             if self._playing:
-                self.displayFrame(self._anim.frameAt(curFrame))
+                self._displayFrame(self._anim.frameAt(curFrame))
                 curFrame = (curFrame + 1) % self._anim.numFrames()
                 self.master.after(40, renderHelp)
         renderHelp()
