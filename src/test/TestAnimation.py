@@ -30,7 +30,6 @@ class TestAnimation(unittest.TestCase):
         self.anim1.addPix(2, Posn(2, 1))
         self.anim1.addPix(2, Posn(2, 2))
 
-
     def test_num_frames(self):
         self.assertEqual(23, self.anim1.numFrames())
         self.anim1.addFrame()

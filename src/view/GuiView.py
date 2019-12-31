@@ -46,6 +46,7 @@ class GuiView():
         self.render()
 
     def makeVisible(self):
+        """Make this view visible."""
         self._root.mainloop()
 
     def render(self):
@@ -53,7 +54,7 @@ class GuiView():
         self._drawing.render()
 
     def setToKey(self, keyIdx):
-        """Sets the view to display the given key, if it is able to."""
+        """Make the given key visible, if possible."""
         self._drawing.setToKey(keyIdx)
 
     def addFeatures(self, features):

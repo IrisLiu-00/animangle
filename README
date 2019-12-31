@@ -2,7 +2,7 @@ A simple animation program that automatically generates in betweens for hand dra
 
 MVP:
 - user can draw on screen using mouse
-- keyboard bindings to make new frame (N), move between frames (arrows), animate (enter)
+- keyboard bindings to make new frame (N), move between frames (arrows), animate (enter), stop animate (space)
 - animation displays the in between frames for all the hand drawn key frames
 
 Extras:

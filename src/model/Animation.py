@@ -2,6 +2,7 @@ from .Frame import Frame
 from .Posn import Posn
 
 # todo: read only frame? read only animation
+# if we do inserting key frames, change dictionary to <KeyFrame, List<Frame>> but frames arent hashable...
 
 class Animation:
     """A class containing information about an animation, including key frames and in betweens."""
@@ -44,6 +45,11 @@ class Animation:
         if not prevKey in self._betweens:
             self._betweens[prevKey] = self._frames[prevKey].betweensTo(self._frames[prevKey + 1], self.numBetweens)
         return self._betweens[prevKey][betweenIdx - 1]
+
+    def __iter__(self):
+        """Return an iterator for all the frames in this animations (keyframes and betweens)"""
+        for i in range(self.numFrames()):
+            yield self.frameAt(i)
 
     def keyFrameAt(self, keyIdx: int):
         """Returns the key frame with the given index.
