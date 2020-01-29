@@ -2,6 +2,8 @@
 
 A simple animation program that generates in betweens for hand drawn frames.
 
+![example](https://github.com/IrisLiu-00/animangle/blob/master/src/resources/demo.gif)
+
 Written in Python and tkinter using the MVC architecture - I wrote
 this mostly as a short exercise in learning Python and figuring
 out how to use MVC with a new language. 
