@@ -86,7 +86,7 @@ class GuiView():
         if self._features:
             filename = filedialog.askopenfilename(initialdir="/", title="Select file",
                                                   filetypes=(("animangle files", "*.animangle"), ("all files", "*.*")))
-            self._features.requestOpen(open(filename))
+            self._features.requestOpen(filename)
 
     def _saveFile(self):
         """Displays a dialog to save a file, then calls the appropriate Features method to handle saving a file."""

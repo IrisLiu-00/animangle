@@ -41,12 +41,15 @@ class BasicController:
         self._view.setToKey(self._anim.numKeyFrames() - 1)
         self._view.render()
 
-    def requestOpen(self, file):
+    def requestOpen(self, filename):
         """Opens the given file, and displays the new animation on the view. If the file is improperly formatted,
         displays a message on the view.
         Args:
             file (file object): the file to open
         """
+        if filename == "":
+            return
+        file = open(filename)
         with file:
             try:
                 newAnim = text2Anim(file)
@@ -55,6 +58,7 @@ class BasicController:
                     newAnim.addFrame()
                 self._view.setToKey(0)
                 self._view.render()
+                self._anim = newAnim
             except FileFormatException as e:
                 self._view.displayMsg(str(e))
 
